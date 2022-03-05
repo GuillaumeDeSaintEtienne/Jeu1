@@ -46,7 +46,7 @@ char** choixDuMot(){ //97 à 122 pour lettre minuscule
 }
 
 bool verificationLettre(char* mot, char lettre, int* position){
-    for(int i = 0; i<strlen(mot); i++){
+    for(int i = 0; i<=strlen(mot); i++){
         if (lettre == mot[i]){
             *position = i;
             return TRUE;
@@ -61,18 +61,23 @@ void affichage(char* mot, int vie){
 }
 
 void jeu( int NombreDeVie, Mot mot,int vie,int position){
+    printf("Choisir le mot :\n");
+    gets(mot.mot);
+    choixNombreDeVie(&vie);
+
     char lettre;
     char motAffiche[strlen(mot.mot)];
-    bool reponse, reponseTrouve = false;
+    bool reponse = false, reponseTrouve = false;
     bool vieRecu = false;
     int rep = 0;
     for(int a = 0; a < strlen(mot.mot); a++){
         motAffiche[a] = '_';
     }
     do{
-        printf("choisissez une lettre\n");
-        scanf("%c",&lettre);
         do{
+            printf("choisissez une lettre\n");
+            scanf("%c",&lettre);
+
             reponse = verificationLettre(motAffiche,lettre,&position);
 
             if (reponse == 1 ){
@@ -97,7 +102,7 @@ void jeu( int NombreDeVie, Mot mot,int vie,int position){
                 reponseTrouve = TRUE;
 
             affichage(motAffiche, vie);
-        }while (reponse);
+        }while (reponse == false);
 
     }while (NombreDeVie != 0 || reponseTrouve);
 

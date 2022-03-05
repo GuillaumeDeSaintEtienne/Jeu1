@@ -58,3 +58,12 @@ bool verificationLettre(char* mot, char lettre){
 void affichage(char* mot, int vie){
     printf("%s\nIl vous reste %d vie(s) !\n", mot, vie);
 }
+
+void jeu(){
+    char lettre;
+    char motAffiche[strlen(mot.mot)];
+
+    //demande de la lettre
+    //verifi la lettre tant que true
+    // modifie le mot affiche
+}

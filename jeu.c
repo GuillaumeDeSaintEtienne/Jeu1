@@ -54,3 +54,7 @@ bool verificationLettre(char* mot, char lettre){
     }
     return FALSE;
 }
+
+void affichage(char* mot, int vie){
+    printf("%s\nIl vous reste %d vie(s) !\n", mot, vie);
+}

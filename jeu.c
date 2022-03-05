@@ -60,11 +60,27 @@ void affichage(char* mot, int vie){
     printf("%s\nIl vous reste %d vie(s) !\n", mot, vie);
 }
 
-void jeu(){
+void jeu( int NombreDeVie, Mot mot,int vie,int position){
     char lettre;
     char motAffiche[strlen(mot.mot)];
+    bool reponse, reponseTrouve = false;
+    bool vieRecu = false;
+    do{
+        printf("choisissez une lettre\n");
+        scanf("%c",&lettre);
+        do{
+            reponse = verificationLettre(motAffiche,lettre,position);
+            if (reponse == 1){
+                NombreDeVie +=1;
+                vieRecu= true;
+            }
+            if (reponse == 0){
+                NombreDeVie -=1;
+                vieRecu=true;
+            }
 
-    //demande de la lettre
-    //verifi la lettre tant que true
-    // modifie le mot affiche
+
+        }while (reponse=true);
+
+    }while (NombreDeVie != 0 || reponseTrouve);
 }

@@ -45,9 +45,10 @@ char** choixDuMot(){ //97 à 122 pour lettre minuscule
     return mot;
 }
 
-bool verificationLettre(char* mot, char lettre){
+bool verificationLettre(char* mot, char lettre, int* position){
     for(int i = 0; i<strlen(mot); i++){
         if (lettre == mot[i]){
+            *position = i;
             return TRUE;
         }
 

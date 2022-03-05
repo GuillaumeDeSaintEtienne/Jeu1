@@ -23,7 +23,7 @@ void choixDuJ(int* nombreDejoueur, int* choixJ){
 void setup(int* nombreDejoueur, int* choixJ, int* vie){
     choixDuJ(nombreDejoueur, choixJ);
     choixNombreDeVie(vie);
-    char** tab = choixDuMot;
+    char** tab = choixDuMot();
 }
 
 char** choixDuMot(){ //97 à 122 pour lettre minuscule

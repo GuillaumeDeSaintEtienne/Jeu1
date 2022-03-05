@@ -65,22 +65,38 @@ void jeu( int NombreDeVie, Mot mot,int vie,int position){
     char motAffiche[strlen(mot.mot)];
     bool reponse, reponseTrouve = false;
     bool vieRecu = false;
+    int rep = 0;
+    for(int a = 0; a < strlen(mot.mot); a++){
+        motAffiche[a] = '_';
+    }
     do{
         printf("choisissez une lettre\n");
         scanf("%c",&lettre);
         do{
-            reponse = verificationLettre(motAffiche,lettre,position);
-            if (reponse == 1){
-                NombreDeVie +=1;
-                vieRecu= true;
+            reponse = verificationLettre(motAffiche,lettre,&position);
+
+            if (reponse == 1 ){
+                motAffiche[position] = lettre;
+                if (vieRecu == false){
+                    NombreDeVie +=1;
+                    vieRecu= true;
+                }
+
             }
             if (reponse == 0){
                 NombreDeVie -=1;
-                vieRecu=true;
+                vieRecu=false;
             }
+            for (int y = 0; y < strlen(mot.mot); y++){
+                rep = 0;
+                if (mot.mot[y]==motAffiche[y])
+                    rep++;
 
+            }
+            if (rep == strlen(mot.mot))
+                reponseTrouve = TRUE;
 
-        }while (reponse=true);
+        }while (reponse);
 
     }while (NombreDeVie != 0 || reponseTrouve);
 }

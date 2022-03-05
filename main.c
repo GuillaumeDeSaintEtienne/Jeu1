@@ -7,6 +7,6 @@
 int main(){
     Mot mot;
     gets(mot.mot);
-    printf("%s", mot.mot);
+    printf("%c", mot.mot[0]);
     return 0;
 }

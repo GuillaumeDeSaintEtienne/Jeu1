@@ -26,9 +26,10 @@ void setup(int* nombreDejoueur, int* choixJ, int* vie){
     char** tab = choixDuMot();
     Mot mot;
     gets(mot.mot);
-    //strcpy(mot.mot, "test");
+
 }
 
+// fonction choidMot à voir eventuellement plus tard
 char** choixDuMot(){ //97 à 122 pour lettre minuscule
     int nbLettres;
     printf("Combien de lettres possède votre mot\n");
@@ -44,3 +45,12 @@ char** choixDuMot(){ //97 à 122 pour lettre minuscule
     return mot;
 }
 
+bool verificationLettre(char* mot, char lettre){
+    for(int i = 0; i<strlen(mot); i++){
+        if (lettre == mot[i]){
+            return TRUE;
+        }
+
+    }
+    return FALSE;
+}

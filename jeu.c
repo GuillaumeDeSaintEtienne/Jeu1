@@ -83,29 +83,19 @@ int jeu( int NombreDeVie, Mot mot,int vie,int position){
                     rep++;
             }
             if (rep == strlen(mot.mot))
-                reponseTrouve = TRUE;
+                reponseTrouve = true;
 
             affichage(motAffiche, vie);
         }while (reponse == false && vie > 0);
 
-    }while (vie != 0 || reponseTrouve);
+        if (reponseTrouve == true){
+            printf("bravo vous avez trouve !");
+            printf("il vous restait %d vie(s).",vie);
+        }
+        else {
+            printf("you are a looser !!");
+        }
 
-    ALLEGRO_DISPLAY* display = NULL;
-    assert(al_init());
-
-
-    al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
-    al_set_window_title(display, "Tu es mort looser !");
-
-
-    al_clear_to_color(al_map_rgb(255, 255, 255));
-    al_draw_line(20,700,800,700,al_map_rgb(255, 255, 255),10);
-    al_flip_display();
-
-
-    al_rest(10.0);
-
-
-    al_destroy_display(display);
-
+    }while (vie != 0 || reponseTrouve==true);
+printf("le jeu est fini");
 }

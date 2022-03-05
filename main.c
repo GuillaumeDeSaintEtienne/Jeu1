@@ -4,13 +4,13 @@
 
 #include "main.h"
 
-/*int main(){
+int main(){
     Mot mot;
     int vie, nombreDeVie, postition;
     jeu(vie, mot, nombreDeVie, postition);
     return 0;
 }
- */
+/*
 
 
 int main () {
@@ -28,3 +28,4 @@ int main () {
 
     return 0;
 }
+*/

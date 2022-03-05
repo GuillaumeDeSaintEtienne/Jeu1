@@ -23,44 +23,29 @@ void choixDuJ(int* nombreDejoueur, int* choixJ){
 void setup(int* nombreDejoueur, int* choixJ, int* vie){
     choixDuJ(nombreDejoueur, choixJ);
     choixNombreDeVie(vie);
-    char** tab = choixDuMot();
+
     Mot mot;
     gets(mot.mot);
 
 }
 
-// fonction choidMot à voir eventuellement plus tard
-char** choixDuMot(){ //97 à 122 pour lettre minuscule
-    int nbLettres;
-    printf("Combien de lettres possède votre mot\n");
-    scanf("%d",&nbLettres);
-    int** mot = calloc(nbLettres +1, sizeof(char));
-    printf("Quel est votre mot ? (ecrivez le en lettre minuscule) \n");
-    scanf("%c", mot);
-    for (int i = 0 ; i < nbLettres ; i++){
-        if (mot[i] < 'a' || mot[i] > 'z'){
-            printf("erreur");
-        }
-    }
-    return mot;
-}
 
-bool verificationLettre(char* mot, char lettre, int* position){
-    for(int i = 0; i<=strlen(mot); i++){
-        if (lettre == mot[i] && mot[i] != '_'){
+bool verificationLettre(char* mot, char* affichageMot, char lettre, int* position) {
+    for (int i = 0; i<=strlen(mot); i++){
+        if (lettre == mot[i] && affichageMot[i] == '_') {
             *position = i;
-            return TRUE;
+            return true;
         }
 
     }
-    return FALSE;
+    return false;
 }
 
 void affichage(char* mot, int vie){
     printf("%s\nIl vous reste %d vie(s) !\n", mot, vie);
 }
 
-void jeu( int NombreDeVie, Mot mot,int vie,int position){
+int jeu( int NombreDeVie, Mot mot,int vie,int position){
     printf("Choisir le mot :\n");
     gets(mot.mot);
     choixNombreDeVie(&vie);
@@ -79,17 +64,17 @@ void jeu( int NombreDeVie, Mot mot,int vie,int position){
             fflush(stdin);
             gets(&lettre);
             fflush(stdin);
-            reponse = verificationLettre(mot.mot,lettre,&position);
+            reponse = verificationLettre(mot.mot, motAffiche,lettre, &position);
 
             if (reponse == 1){
                 motAffiche[position] = lettre;
                 if (vieRecu == false){
-                    NombreDeVie +=1;
+                    vie +=1;
                     vieRecu= true;
                 }
             }
             if (reponse == 0){
-                NombreDeVie -=1;
+                vie -=1;
                 vieRecu=false;
             }
             for (int y = 0; y < strlen(mot.mot); y++){
@@ -101,8 +86,8 @@ void jeu( int NombreDeVie, Mot mot,int vie,int position){
                 reponseTrouve = TRUE;
 
             affichage(motAffiche, vie);
-        }while (reponse == false);
+        }while (reponse == false && vie > 0);
 
-    }while (NombreDeVie != 0 || reponseTrouve);
-
+    }while (vie != 0 || reponseTrouve);
+return 0;
 }

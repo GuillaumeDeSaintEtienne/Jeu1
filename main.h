@@ -17,6 +17,7 @@ typedef struct {
     int nombreDeLettre;
 }Mot;
 
+
 int nombreAleatoireEntre(int min, int max);
 void choixNombreDeVie(int* vie);
 void choixDuJ(int* nombreDejoueur, int* choixJ);

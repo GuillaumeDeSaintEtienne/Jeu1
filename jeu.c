@@ -24,13 +24,16 @@ void setup(int* nombreDejoueur, int* choixJ, int* vie){
     choixDuJ(nombreDejoueur, choixJ);
     choixNombreDeVie(vie);
     char** tab = choixDuMot();
+    Mot mot;
+    gets(mot.mot);
+    //strcpy(mot.mot, "test");
 }
 
 char** choixDuMot(){ //97 à 122 pour lettre minuscule
     int nbLettres;
     printf("Combien de lettres possède votre mot\n");
     scanf("%d",&nbLettres);
-    int* mot = calloc(nbLettres +1, sizeof(char));
+    int** mot = calloc(nbLettres +1, sizeof(char));
     printf("Quel est votre mot ? (ecrivez le en lettre minuscule) \n");
     scanf("%c", mot);
     for (int i = 0 ; i < nbLettres ; i++){
@@ -40,3 +43,4 @@ char** choixDuMot(){ //97 à 122 pour lettre minuscule
     }
     return mot;
 }
+

@@ -5,6 +5,8 @@
 #include "main.h"
 
 int main(){
-    printf("hello world !");
+    Mot mot;
+    gets(mot.mot);
+    printf("%s", mot.mot);
     return 0;
 }

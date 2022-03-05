@@ -4,9 +4,27 @@
 
 #include "main.h"
 
-int main(){
+/*int main(){
     Mot mot;
     int vie, nombreDeVie, postition;
     jeu(vie, mot, nombreDeVie, postition);
+    return 0;
+}
+ */
+
+
+int main () {
+    assert(al_init());
+    ALLEGRO_DISPLAY *display = NULL;
+    display = al_create_display(800, 600);
+    assert(display != NULL);
+    al_set_window_title(display, "Tu es nulle looser !");
+    al_clear_to_color(al_map_rgb(255, 255,  255));
+    al_flip_display();
+    al_draw_rectangle(200,500,600,510,al_map_rgb(0, 0,  0),20);
+    al_flip_display();
+    al_rest(5);
+    al_destroy_display(display);
+
     return 0;
 }

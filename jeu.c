@@ -89,5 +89,23 @@ int jeu( int NombreDeVie, Mot mot,int vie,int position){
         }while (reponse == false && vie > 0);
 
     }while (vie != 0 || reponseTrouve);
-return 0;
+
+    ALLEGRO_DISPLAY* display = NULL;
+    assert(al_init());
+
+
+    al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
+    al_set_window_title(display, "Tu es mort looser !");
+
+
+    al_clear_to_color(al_map_rgb(255, 255, 255));
+    al_draw_line(20,700,800,700,al_map_rgb(255, 255, 255),10);
+    al_flip_display();
+
+
+    al_rest(10.0);
+
+
+    al_destroy_display(display);
+
 }

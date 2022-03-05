@@ -96,7 +96,9 @@ void jeu( int NombreDeVie, Mot mot,int vie,int position){
             if (rep == strlen(mot.mot))
                 reponseTrouve = TRUE;
 
+            affichage(motAffiche, vie);
         }while (reponse);
 
     }while (NombreDeVie != 0 || reponseTrouve);
+
 }

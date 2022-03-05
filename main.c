@@ -6,7 +6,7 @@
 
 int main(){
     Mot mot;
-    gets(mot.mot);
-    printf("%c", mot.mot[0]);
+    int vie, nombreDeVie, postition;
+    jeu(vie, mot, nombreDeVie, postition);
     return 0;
 }

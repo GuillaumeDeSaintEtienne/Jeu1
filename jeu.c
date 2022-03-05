@@ -2,7 +2,7 @@
 // Created by Guillaume dse on 05/03/2022.
 //
 
-#include "jeu.h"
+#include "main.h"
 
 int nombreAleatoireEntre(int min, int max){
     return rand() %(max- min+1 )+min;

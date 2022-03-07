@@ -85,6 +85,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
             }
 
+
         } while (reponse == true);
 
 

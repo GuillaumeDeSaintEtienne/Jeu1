@@ -81,10 +81,6 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
                 }
             }
 
-            if (reponseTrouve == true) {
-                printf("bravo vous avez trouve !");
-                printf("il vous restait %d vie(s).", vie);
-            }
 
         } while (reponse == true);
 
@@ -98,10 +94,12 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
         if (rep == strlen(mot.mot)) {
             reponseTrouve = true;
+            printf("bravo vous avez trouve !");
+            printf("il vous restait %d vie(s).", vie);
             break;
         }
 
-    } while (( vie > 0) || reponseTrouve == false);
+    } while (vie > 0);
 
     return 0;
 };

@@ -83,8 +83,9 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
             if (mot.mot[y] == motAffiche[y])
                 rep++;
         }
-        if (rep == strlen(mot.mot))
+        if (rep == strlen(mot.mot)){
             reponseTrouve = true;
+        }
 
         if (reponseTrouve == true) {
             printf("bravo vous avez trouve !");

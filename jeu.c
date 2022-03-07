@@ -94,7 +94,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
         if (rep == strlen(mot.mot)) {
             reponseTrouve = true;
-            printf("bravo vous avez trouve !");
+            printf("bravo vous avez trouve !\n");
             printf("il vous restait %d vie(s).", vie);
             break;
         }

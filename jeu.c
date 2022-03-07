@@ -94,5 +94,5 @@ int jeu( int NombreDeVie, Mot mot,int vie,int position){
 
         }while (reponse == false && vie > 0);
 
-    }while (vie != 0 || reponseTrouve==true);
+    }while (vie != 0 || reponseTrouve==false);
 }

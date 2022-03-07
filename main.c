@@ -19,9 +19,9 @@ int main () {
     display = al_create_display(800, 600);
     assert(display != NULL);
     al_set_window_title(display, "Tu es nulle looser !");
-    al_clear_to_color(al_map_rgb(255, 255,  255));
+    al_clear_to_color(al_map_rgb(0, 0,  255));
     al_flip_display();
-    al_draw_rectangle(200,500,600,510,al_map_rgb(0, 0,  0),20);
+    al_draw_filled_rectangle(200, 200, 300, 300, al_map_rgb(255, 0, 0));
     al_flip_display();
     al_rest(5);
     al_destroy_display(display);

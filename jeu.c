@@ -63,13 +63,16 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
         printf("choisissez une lettre\n");
         fflush(stdin);
         gets(&lettre);
-
         repjust = false;
         fflush(stdin);
 
         do {
 
-            if (reponse == false) {
+
+            reponse = verificationLettre(mot.mot, motAffiche, lettre, &position);
+
+
+            if (reponse == false && repjust == false) {
                 vie -= 1;
 
                 if (vie == 0) {
@@ -78,11 +81,10 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
                     return 0;
                 }
             }
-            reponse = verificationLettre(mot.mot, motAffiche, lettre, &position);
 
             if (reponse == true) {
                 motAffiche[position] = lettre;
-
+                repjust = true;
             }
 
 

@@ -20,7 +20,7 @@ typedef struct {
 typedef struct {
     int vie;
     char nom[50];
-};
+}joueur;
 
 
 int nombreAleatoireEntre(int min, int max);

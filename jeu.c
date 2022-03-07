@@ -53,7 +53,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
     char lettre;
     char motAffiche[100] = {0};
     bool reponse = false, reponseTrouve = false;
-    bool vieRecu = false;
+    bool repjust = false;
     int rep = 0;
     for (int a = 0; a < strlen(mot.mot); a++) {
         motAffiche[a] = '_';
@@ -63,17 +63,26 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
         printf("choisissez une lettre\n");
         fflush(stdin);
         gets(&lettre);
+        repjust = false;
         fflush(stdin);
 
         do {
+
+            if (reponse == true && repjust == true){
+                vie++;
+            }
+
             reponse = verificationLettre(mot.mot, motAffiche, lettre, &position);
 
             if (reponse == true) {
                 motAffiche[position] = lettre;
+                repjust=true;
             }
 
             if (reponse == false) {
                 vie -= 1;
+
+                repjust = false;
                 if (vie == 0) {
                     printf("you are a looser!\n");
                     printf("le mot etait %s !!!", mot.mot);

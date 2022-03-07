@@ -68,49 +68,45 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
         do {
 
-            if (reponse == true && repjust == true){
-                vie++;
-            }
 
             reponse = verificationLettre(mot.mot, motAffiche, lettre, &position);
 
-            if (reponse == true) {
-                motAffiche[position] = lettre;
-                repjust=true;
-            }
 
-            if (reponse == false) {
+            if (reponse == false && repjust == false) {
                 vie -= 1;
 
-                repjust = false;
                 if (vie == 0) {
                     printf("you are a looser!\n");
-                    printf("le mot etait %s !!!", mot.mot);
+                    printf("le mot etait %s !!!\n", mot.mot);
                     return 0;
                 }
             }
 
-            if (reponseTrouve == true) {
-                printf("bravo vous avez trouve !");
-                printf("il vous restait %d vie(s).", vie);
+            if (reponse == true) {
+                motAffiche[position] = lettre;
+                repjust = true;
             }
 
+
         } while (reponse == true);
+
 
         affichage(motAffiche, vie);
         rep = 0;
         for (int y = 0; y < strlen(mot.mot); y++) {
-            if (mot.mot[y] == motAffiche[y]){
+            if (mot.mot[y] == motAffiche[y]) {
                 rep++;
             }
         }
 
         if (rep == strlen(mot.mot)) {
             reponseTrouve = true;
+            printf("bravo vous avez trouve !\n");
+            printf("il vous restait %d vie(s).", vie);
             break;
         }
 
-    } while (( vie > 0) || reponseTrouve == false);
+    } while (vie > 0);
 
     return 0;
 };

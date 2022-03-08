@@ -22,7 +22,8 @@ typedef struct {
     char nom[50];
 }joueur;
 
-
+int menu1();
+void menu2();
 int nombreAleatoireEntre(int min, int max);
 void choixNombreDeVie(int* vie);
 void choixDuJ(int* nombreDejoueur, int* choixJ);

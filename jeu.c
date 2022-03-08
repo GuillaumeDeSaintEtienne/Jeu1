@@ -121,7 +121,11 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
     int nombreLettre = 0;
     printf("Choisir le mot :");
     gets(mot.mot);
-    nombreLettre = sizeof (mot.mot);
+    for (int i=0; i < 50 ; i++){
+        if (mot.mot[i]!='_'){
+            nombreLettre++;
+        }
+    }
     choixNombreDeVie(&vie);
 
     char lettre;

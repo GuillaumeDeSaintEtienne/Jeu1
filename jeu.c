@@ -121,15 +121,12 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
     int nombreLettre = 0;
     printf("Choisir le mot :");
     gets(mot.mot);
-    for (int i=0; i < 50 ; i++){
-        if (mot.mot[i]!='_'){
-            nombreLettre++;
-        }
-    }
+
     choixNombreDeVie(&vie);
 
     char lettre;
     char motAffiche[100] = {0};
+
     bool reponse = false, reponseTrouve = false;
     bool repjust = false;
     int rep = 0;
@@ -138,7 +135,13 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
     }
 
     do {
-        printf("Le mot contient %d lettres\n",nombreLettre);
+        for (int i=0; i < 50 ; i++){
+            if (motAffiche[i]=='_'){
+                nombreLettre++;
+            }
+        }
+        printf("Il reste %d lettres a trouver \n",nombreLettre);
+        nombreLettre = 0;
         printf("choisissez une lettre\n");
         fflush(stdin);
         gets(&lettre);

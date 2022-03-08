@@ -5,7 +5,7 @@
 #include "main.h"
 
 int main(){
-    //menu2();
+    menu2();
     Mot mot;
     int vie, nombreDeVie, postition;
     jeu(vie, mot, nombreDeVie, postition);

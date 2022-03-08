@@ -10,18 +10,18 @@ int menu1() {
     do {
         erreur = 0;
         printf("\n\n================== Menu ================== \n\n");
-        printf("                Pendu \n       realise par Guigui et Emil\n\n\n\n");
+        printf("                Pendu \n       realise par Guigui et Emil\n\n\n");
 
         printf("       Appuyez sur J pour JOUER\n");
         printf("Appuyez sur R pour afficher les REGLES DU JEUX\n");
         printf(" Appuyez sur I pour afficher des INFORAMTIONS\n");
         printf("       Appuyez sur Q pour QUITTER\n");
-        printf("\n\n\n        ------------------------");
-        printf("\n            Projet 2022\n               ECE LYON\n          Tous droits reserves\n");
+        printf("\n\n        ------------------------");
+        printf("\n             Projet 2022\n               ECE LYON\n          Tous droits reserves\n");
         printf("        ------------------------\n");
         printf("\n               Lettre ?\n");
         scanf(" %c", &choix);
-        printf("\n\n\n\n\n\n");
+        printf("\n\n\n\n");
         if (!(choix == 'J' || choix == 'R' || choix == 'I' || choix == 'Q')) {
             printf("\n\nChoix incorrect: ERREUR\n\n");
             erreur = 1;
@@ -184,7 +184,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
         if (rep == strlen(mot.mot)) {
             reponseTrouve = true;
             printf("bravo vous avez trouve !\n");
-            printf("il vous restait %d vie(s).", vie);
+            printf("il vous restait %d vie(s).\n", vie);
             break;
         }
 

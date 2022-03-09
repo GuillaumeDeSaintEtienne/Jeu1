@@ -22,6 +22,12 @@ typedef struct {
     char nom[50];
 }joueur;
 
+typedef struct{
+    int x,y,w,h;
+    ALLEGRO_COLOR color;
+    int vitesse;
+}Rect;
+
 
 int nombreAleatoireEntre(int min, int max);
 void choixNombreDeVie(int* vie);

@@ -3,8 +3,7 @@
 //
 
 #include "main.h"
-
-int menu1() {
+char menu1() {
     char choix = 0;
     bool erreur;
     do {
@@ -176,7 +175,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
                 vie -= 1;
 
                 if (vie == 0) {
-                    //imagePendu();
+                    imagePendu();
                     printf("you are a looser!\n");
                     printf("le mot etait %s !!!\n", mot.mot);
                     return 0;
@@ -212,3 +211,4 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
     return 0;
 };
+

@@ -36,6 +36,7 @@ void setup(int* nombreDejoueur, int* choixJ, int* vie);
 char** choixDuMot();
 void affichage(char* mot, int vie);
 int jeu( int NombreDeVie, Mot mot,int vie,int position);
-
+void menu2();
+char menu1();
 
 #endif //JEU1_MAIN_H

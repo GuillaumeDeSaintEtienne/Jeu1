@@ -3,18 +3,22 @@
 //
 
 #include "main.h"
-/*
+
 int main(){
-    //menu2();
+    menu2();
     Mot mot;
+    fflush(stdin);
     int vie, nombreDeVie, postition;
     jeu(vie, mot, nombreDeVie, postition);
     return 0;
 }
-*/
+
+
+/*
 
 int main(){
     ALLEGRO_DISPLAY *display = NULL;
+    bool end = false;
     assert(al_init());
     display = al_create_display(800, 600);
     assert(display != NULL);
@@ -41,3 +45,4 @@ int main(){
     al_rest(5);
     al_destroy_display(display);
 }
+*/

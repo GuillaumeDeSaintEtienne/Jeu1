@@ -12,6 +12,10 @@
 #include <allegro5/allegro_primitives.h>
 #include <string.h>
 
+
+#define LARGEUR 800
+#define HAUTEUR 600
+
 typedef struct {
     char mot[100];
     int nombreDeLettre;

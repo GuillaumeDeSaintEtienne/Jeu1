@@ -104,12 +104,12 @@ void affichage(char *mot, int vie) {
 }
 
 void imagePendu(){
-    ALLEGRO_DISPLAY *display = NULL;
+    /*ALLEGRO_DISPLAY *display = NULL;
     assert(al_init());
     display = al_create_display(800, 600);
     assert(display != NULL);
     al_set_window_title(display, "JEU DE PENDU");
-    al_init_primitives_addon();
+    al_init_primitives_addon();*/
     al_clear_to_color(al_map_rgb(255, 20,  20));
     al_draw_line(100, 550, 700, 550, al_map_rgb(0, 0, 0),5);
     al_draw_line(150, 550, 150, 50, al_map_rgb(0, 0, 0),5);
@@ -129,11 +129,33 @@ void imagePendu(){
     al_draw_line(385, 115, 415, 115, al_map_rgb(0, 0, 0),4);
     al_flip_display();
     al_rest(5);
-    al_destroy_display(display);
+    //al_destroy_display(display);
 }
 
 
+
 int jeu(int NombreDeVie, Mot mot, int vie, int position) {
+
+    // Partie allegro
+    ALLEGRO_DISPLAY *display = NULL;
+    ALLEGRO_EVENT_QUEUE *queue = NULL;
+    ALLEGRO_TIMER *timer = NULL;
+    ALLEGRO_EVENT event = {0};
+    assert(al_init());
+    assert(al_init_primitives_addon());
+    assert(al_install_keyboard());
+    display = al_create_display(LARGEUR, HAUTEUR);
+    assert(display != NULL);
+    al_set_window_title(display, "JEU DE PENDU");
+    bool end = false;
+    queue = al_create_event_queue();
+
+    al_register_event_source(queue, al_get_display_event_source(display));
+    //al_register_event_source(queue, al_get_timer_event_source(timer));
+    al_register_event_source(queue, al_get_keyboard_event_source());
+
+
+    // Partie Jeux
     int nombreLettre = 0;
     printf("Choisir le mot :");
     gets(mot.mot);
@@ -175,7 +197,7 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
                 vie -= 1;
 
                 if (vie == 0) {
-                    imagePendu();
+                    //imagePendu();
                     printf("you are a looser!\n");
                     printf("le mot etait %s !!!\n", mot.mot);
                     return 0;
@@ -206,9 +228,33 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
             break;
         }
 
+        if (repjust == false){
+        while (!end){
+            al_wait_for_event(queue, &event);
+            switch (event.type) {
+                case ALLEGRO_EVENT_DISPLAY_CLOSE : {
+                    end = true;
+                    break;
+                }
+                case ALLEGRO_KEY_ESCAPE : {
+                    end = true;
+                    break;
+                }
+            }
+            if (vie == 0){
+            imagePendu();
+            }
+        }
+
+        }
+
     } while (vie > 0);
 
+    al_destroy_display(display);
+    al_destroy_event_queue(queue);
+    al_destroy_timer(timer);
 
     return 0;
 };
+
 

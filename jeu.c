@@ -244,8 +244,9 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
             if (vie == 0){
             imagePendu();
             }
-        }
 
+        }
+            al_destroy_display(display); // trouver moyen d'en recreer à chaque boucle
         }
 
     } while (vie > 0);

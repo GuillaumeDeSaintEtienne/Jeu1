@@ -3,7 +3,7 @@
 //
 
 #include "main.h"
-
+/*
 int menu1() {
     char choix = 0;
     bool erreur;
@@ -109,9 +109,28 @@ void affichageAllegro(int *vie){
     ALLEGRO_DISPLAY *display = NULL;
     display = al_create_display(800, 600);
     assert(display != NULL);
-    al_set_window_title(display, "Jeu de pendu !");
+    al_set_window_title(display, "JEU DE PENDU");
     al_clear_to_color(al_map_rgb(255, 255,  255));
-    al_draw_filled_rectangle(100,550,700,570,al_map_rgb(0, 0, 0));
+    al_flip_display();
+    al_draw_line(100, 550, 700, 550, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(150, 550, 150, 50, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(100, 50, 500, 50, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 50, 400, 70, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_circle(400,100,30,al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 130, 400, 350, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 350, 450, 450, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 350, 350, 450, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 180, 350, 150, al_map_rgb(0, 0, 0),5);
+    al_flip_display();
+    al_draw_line(400, 180, 450, 150, al_map_rgb(0, 0, 0),5);
     al_flip_display();
     al_rest(5);
     al_destroy_display(display);
@@ -127,7 +146,8 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
     char lettre;
     char motAffiche[100] = {0};
 
-    bool reponse = false, reponseTrouve = false;
+    bool reponse = false;
+    bool reponseTrouve = false;
     bool repjust = false;
     int rep = 0;
     for (int a = 0; a < strlen(mot.mot); a++) {
@@ -193,3 +213,4 @@ int jeu(int NombreDeVie, Mot mot, int vie, int position) {
 
     return 0;
 };
+*/
